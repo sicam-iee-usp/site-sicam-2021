@@ -1,0 +1,237 @@
+---
+title: "Programação completa"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(magrittr)
+library(reactable)
+```
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+
+
+## Estrutura do evento
+
+O evento será dividido em 3 etapas principais para cada dia: 
+
+**i) Mesa Redonda:** dará a abertura das atividades do dia,  a partir de uma  palestra sobre o tema central a ser tratado em cada dia do evento,  após a apresentação do palestrante o mesmo poderá debater com o público geral e membros convidados para a mesa redonda.  
+
+**ii) Apresentação oral dos trabalhos submetidos e aprovados:** a apresentação será realizada de forma simultânea e em diferentes salas on-line, de acordo com a temática (sub temas).  Nesse momento a atenção dos participantes se dividirá entre as salas. A apresentação oral envolve a apresentação dos trabalhos submetidos e aprovados pela Comissão Científica (formada por professores e especialistas sobre o tema), após a apresentação do trabalho será realizado um debate  a partir das perguntas levantadas pelo público e convidados. Além disso, cada sala contará com um relator, o qual possui a função de compilar os principais temas debatidos e compartilhar na Plenária Geral, a última etapa do dia;
+
+**iii) Plenária Geral:** a última etapa do dia,  consiste em ampliar os debates para todo o público das apresentações orais de cada sub tema. 
+
+
+### [<i class="fas fa-palette"></i> Confira a **facilitação gráfica** produzida durante o evento](https://sicam.com.br/facilitacao-grafica/)
+
+
+
+```{r echo=FALSE}
+tabela_programacao <- tibble::tribble(
+~Dia,  ~`Horário`, ~Atividade, ~`Link de acesso`,  ~destaque,
+ "25/10/2021", "13:00 - 13:50" , "<b>Cafézinho com Vídeo-Pôster:</b> Exibição de teasers dos vídeos-pôsteres enviados a todos os GTs.", " ", FALSE,
+
+ "25/10/2021", "14:00 - 14:30", "<b>Cerimônia de Abertura.</b> <br><br> <b>Participantes:</b> Alynne Afonso (Representação Discente e Membro da Comissão Organizadora III SICAM),  Roberto Zilles (Diretor do Diretor do Instituto de Energia e Ambiente - IEE/USP), Paulo Sinisgalli (Coordenador do Programa de Pós Graduação em Ciência Ambiental - PROCAM)", "<a href='https://youtu.be/0ErMSzGbGWM' target='_blank'><i class='fab fa-youtube'></i> Transmissão ao vivo</a>", FALSE,
+
+ "25/10/2021", "14:30 - 15:30", "<b>1ª Mesa Redonda: Conservação, Impactos e Planejamento Ambiental</b><br><br>	<b>Participantes: </b><br>
+		<b>Mediador(a):</b> Cristina Adams  <br>
+		<b>Palestrante:</b> Carla Morsello <br>
+		<b>Palestrante:</b> Ailton Krenak<br><br>
+<a href='https://sicam.com.br/Breve_Descricao_Curricular_Palestrantes_Mesas_Redondas_III_SICAM.pdf' target='_blank'><i class='fas fa-arrow-right'></i>  Leia a breve descrição curricular dos participantes</a> ", "<a href='https://youtu.be/0ErMSzGbGWM' target='_blank'><i class='fab fa-youtube'></i> Transmissão ao vivo</a>",FALSE,
+
+
+  
+  
+
+ "25/10/2021", "15:40 - 17:15", "<b>GT 1 Áreas Protegidas, Patrimônio Cultural, Povos Indígenas e Comunidades Tradicionais</b> <br><br><b>Coordenador(a):<b> Sueli Furlan <br>
+<b>Debatedor(a):</b> Neiva Araujo<br>
+<b>Relator(a):</b> Neiva Araujo <br><br>
+<a href='/programacao_apresentacoes_orais/'><i class='fas fa-chalkboard-teacher'></i><i class='fas fa-arrow-right'></i>Confira a programação de apresentações orais</a> ", "Apenas para pessoas inscritas", TRUE,
+
+ "25/10/2021", "15:40 - 17:15", "<b>GT 2 Alternativas de uso dos recursos naturais e Economia do Meio Ambiente</b> <br><br><b>Coordenador(a):<b> Paulo Sinisgalli <br>
+<b>Debatedor(a):</b> Rafael Chaves<br>
+<b>Relator(a):</b> Anelise Gomes da Silva <br><br>
+<a href='/programacao_apresentacoes_orais/'><i class='fas fa-chalkboard-teacher'></i><i class='fas fa-arrow-right'></i>Confira a programação de apresentações orais</a> 
+<br><br>
+<a href='https://youtube.com/playlist?list=PLcAjSMjQXfTbP3Q1yZ08kusMhyr8edxjo' target='_blank'><i class='fab fa-youtube'></i><i class='fas fa-arrow-right'></i>Confira os vídeo-pôster</a> ", "Apenas para pessoas inscritas", TRUE,
+
+ "25/10/2021", "15:40 - 17:15", "<b>GT 3 Transição Energética e Mudanças Climáticas</b> <br><br><b>Coordenador(a):<b> Drielli Peyerl <br>
+<b>Debatedor(a):</b> Nathalia Capellini<br>
+<b>Relator(a):</b> Mariana Oliveira Barbosa <br><br>
+<a href='/programacao_apresentacoes_orais/'><i class='fas fa-chalkboard-teacher'></i><i class='fas fa-arrow-right'></i>Confira a programação de apresentações orais</a> <br><br>
+<a href='https://youtube.com/playlist?list=PLcAjSMjQXfTaCE9b7meZeOvBr8YbYqWqr' target='_blank'><i class='fab fa-youtube'></i><i class='fas fa-arrow-right'></i>Confira os vídeo-pôster</a> ", "Apenas para pessoas inscritas", TRUE,
+		
+ "25/10/2021", "15:40 - 17:15", "<b>GT 4 Grandes Projetos de Infraestrutura e Impactos Socioambientais</b> <br><br><b>Coordenador(a):<b> Evandro Moretto <br>
+<b>Debatedor(a):</b> Daniel Rondinelli Roquetti <br>
+<b>Relator(a):</b> Sergio Mantovani Paiva Pulice <br><br>
+<a href='/programacao_apresentacoes_orais/'><i class='fas fa-chalkboard-teacher'></i><i class='fas fa-arrow-right'></i>Confira a programação de apresentações orais</a> <br><br>
+<a href='https://youtube.com/playlist?list=PLcAjSMjQXfTZ6FWzgA4r9Q8hbkjTx27vS' target='_blank'><i class='fab fa-youtube'></i><i class='fas fa-arrow-right'></i>Confira os vídeo-pôster</a> ", "Apenas para pessoas inscritas", TRUE,
+
+ "25/10/2021", "17:15 - 17:20", "<b>Intervalo</b>", "", FALSE,
+
+ "25/10/2021", "17:20 - 18:10", "<b>1ª Plenária Geral: Apresentação das principais discussões dos GTs</b> <br><br><b>Participantes:</b>  <br>
+<b>Relator(a) GT 1:</b> Neiva Araujo  <br>
+<b>Relator(a) GT 2:</b> Anelise Gomes da Silva   <br>
+<b>Relator(a) GT 3:</b> Mariana Oliveira Barbosa  <br>
+<b>Relator(a) GT 4:</b> Sergio Mantovani Paiva Pulice", "<a href='https://youtu.be/vIvglbypc7k' target='_blank'><i class='fab fa-youtube'></i> Transmissão ao vivo</a>", FALSE,
+
+# dia 2 -----
+"26/10/2021", "13:00 - 13:50" , "<b>Cafézinho com Vídeo-Pôster:</b> Exibição de teasers dos vídeos-pôsteres enviados a todos os GTs.", " ", FALSE,
+
+ "26/10/2021", "14:00 - 15:00", "<b>2ª Mesa Redonda: Governança, Políticas Ambientais e Sustentabilidade</b><br><br>	<b>Participantes: </b><br>
+		<b>Mediador(a):</b> Ana Paula Fracalanza  <br>
+		<b>Palestrante:</b> Mônica Porto <br>
+		<b>Palestrante:</b> Luiz Carlos Beduschi <br><br>
+<a href='https://sicam.com.br/Breve_Descricao_Curricular_Palestrantes_Mesas_Redondas_III_SICAM.pdf' target='_blank'><i class='fas fa-arrow-right'></i> Leia a breve descrição curricular dos participantes</a>", "<a href='https://youtu.be/23CZ4I7vo_w' target='_blank'><i class='fab fa-youtube'></i> Transmissão ao vivo</a>", FALSE,
+
+ "26/10/2021", " ", " ", " ", TRUE,
+
+ "26/10/2021", "15:10 - 17:25", "<b>GT 5 Governança, Políticas Públicas e Direito Ambiental  </b> <br><br>
+<b>Coordenador(a)</b>: Eduardo Caldas<br> 
+<b>Debatedor(a):</b> Eduardo Caldas <br>
+<b>Relator(a):</b> Julianna Colonna <br><br>
+<a href='/programacao_apresentacoes_orais/'><i class='fas fa-chalkboard-teacher'></i><i class='fas fa-arrow-right'></i>Confira a programação de apresentações orais</a>  <br><br>
+<a href='https://youtube.com/playlist?list=PLcAjSMjQXfTbifkMuPEIdmbH9IWFdui_y' target='_blank'><i class='fab fa-youtube'></i><i class='fas fa-arrow-right'></i>Confira os vídeo-pôster</a> ", "Apenas para pessoas inscritas", TRUE,
+
+ "26/10/2021", "15:10 - 17:25", "<b>GT 6 Resíduos e Consumo  </b> <br><br>
+<b>Coordenador(a)</b>: Sylmara Dias<br> 
+<b>Debatedor(a):</b> Luciana Ziglio <br>
+<b>Relator(a):</b> Isabela Ribeiro Borges de Carvalho <br><br>
+<a href='/programacao_apresentacoes_orais/'><i class='fas fa-chalkboard-teacher'></i><i class='fas fa-arrow-right'></i>Confira a programação de apresentações orais</a>   <br><br>
+<a href='https://youtube.com/playlist?list=PLcAjSMjQXfTbH15Efms_YO4tDVMofqr2E' target='_blank'><i class='fab fa-youtube'></i><i class='fas fa-arrow-right'></i>Confira os vídeo-pôster</a> ", "Apenas para pessoas inscritas", TRUE,
+
+ "26/10/2021", "15:10 - 17:25", "<b>GT 7 Desafios do Desenvolvimento Sustentável Pós Covid-19 no Brasil e América Latina   </b> <br><br> Apresentação com GT 6 <br><br>
+<b>Coordenador(a)</b>: Pedro Jacobi<br> 
+<b>Debatedor(a):</b> Leandro L. Giatti  <br>
+<b>Relator(a):</b> Kaue L. dos Santos <br><br>
+<a href='/programacao_apresentacoes_orais/'><i class='fas fa-chalkboard-teacher'></i><i class='fas fa-arrow-right'></i>Confira a programação de apresentações orais</a>    <br><br>
+<a href='https://youtube.com/playlist?list=PLcAjSMjQXfTaPxkfMBI3OI4wDRSK4toLD' target='_blank'><i class='fab fa-youtube'></i><i class='fas fa-arrow-right'></i>Confira os vídeo-pôster</a> ", "Apenas para pessoas inscritas", TRUE,
+
+
+ "26/10/2021", "15:10 - 17:25", "<b>GT 8 Mudanças Climáticas, Vulnerabilidade e Riscos Socioambientais   </b> <br><br> 
+<b>Coordenador(a)</b>: Pedro Torres<br> 
+<b>Debatedor(a):</b> Fabiana Barbi  <br>
+<b>Relator(a):</b> Marcos Tavares <br><br>
+<a href='/programacao_apresentacoes_orais/'><i class='fas fa-chalkboard-teacher'></i><i class='fas fa-arrow-right'></i>Confira a programação de apresentações orais</a>     <br><br>
+<a href='https://youtube.com/playlist?list=PLcAjSMjQXfTbUDwm3CVCNhkR3apD56cC6' target='_blank'><i class='fab fa-youtube'></i><i class='fas fa-arrow-right'></i>Confira os vídeo-pôster</a> ", "Apenas para pessoas inscritas", TRUE,
+
+ "26/10/2021", "17:30 - 18:20", "<b>2ª Plenária Geral: Apresentação das principais discussões dos GTs</b> <br><br><b>Participantes:</b>  <br>
+<b>Relator(a) GT 1:</b> Julianna Colonna   <br>
+<b>Relator(a) GT 2:</b> Isabela Ribeiro Borges de Carvalho   <br>
+<b>Relator(a) GT 3:</b>  Kaue L. dos Santos  <br>
+<b>Relator(a) GT 4:</b> Marcos Tavares", "<a href='https://youtu.be/c0FQN9vJp4M' target='_blank'><i class='fab fa-youtube'></i> Transmissão ao vivo</a>", FALSE,
+
+
+
+# dia 3 -----
+"27/10/2021", "13:00 - 13:50" , "<b>Cafézinho com Vídeo-Pôster:</b> Exibição de teasers dos vídeos-pôsteres enviados a todos os GTs.", " ", FALSE,
+
+ "27/10/2021", "14:00 - 15:00", "<b>3ª Mesa Redonda: Mudanças climáticas, geotecnologias e modelagem</b><br><br>	<b>Participantes: </b><br>
+		<b>Mediador(a):</b> Carlos Grohmann   <br>
+		<b>Palestrante:</b> Andreia Pinto  <br>
+		<b>Palestrante:</b> Thelma Krug <br><br>
+<a href='https://sicam.com.br/Breve_Descricao_Curricular_Palestrantes_Mesas_Redondas_III_SICAM.pdf' target='_blank'><i class='fas fa-arrow-right'></i> Leia a breve descrição curricular dos participantes</a>", "<a href='https://youtu.be/NikKGIw1-vg' target='_blank'><i class='fab fa-youtube'></i> Transmissão ao vivo</a>", FALSE,
+
+ "27/10/2021", " ", " ", " ", TRUE,
+
+ "27/10/2021", "15:10 - 17:00", "<b>GT 9 Modelagens em Mudanças Climáticas e Oceanografia</b> <br><br>
+<b>Coordenadores(as)</b>: Pedro Cortes e Joseph Harari<br> 
+<b>Debatedores(a):</b> Pedro Cortes e Joseph Harari <br>
+<b>Relator(a):</b> Igor Ruiz Atake <br><br>
+<a href='/programacao_apresentacoes_orais/'><i class='fas fa-chalkboard-teacher'></i><i class='fas fa-arrow-right'></i>Confira a programação de apresentações orais</a> ", "Apenas para pessoas inscritas", TRUE,
+
+ "27/10/2021", "15:10 - 17:00", "<b>GT 10 Geotecnologias e Ciência Ambiental  </b> <br><br>
+<b>Coordenador(a)</b>:  Joel Sigolo<br> 
+<b>Debatedor(a):</b>  Joel Sigolo <br>
+<b>Relator(a):</b> Mario Marcelino  <br><br>
+<a href='/programacao_apresentacoes_orais/'><i class='fas fa-chalkboard-teacher'></i><i class='fas fa-arrow-right'></i>Confira a programação de apresentações orais</a>  ", "Apenas para pessoas inscritas", TRUE,
+
+ "27/10/2021", " ", " ", " ", FALSE,
+
+ "27/10/2021", "17:00 - 17:05", "<b>Intervalo</b>", "", FALSE,
+
+ "27/10/2021", "17:05 - 17:30", "<b>3ª Plenária Geral: Apresentação das principais discussões dos GTs</b> <br><br><b>Participantes:</b>  <br>
+<b>Relator(a) GT 9:</b> Igor Ruiz Atake   <br>
+<b>Relator(a) GT 10:</b> Mario Marcelino  ", "<a href='https://youtu.be/koogeBIERpU' target='_blank'><i class='fab fa-youtube'></i> Transmissão ao vivo</a>", FALSE,
+
+
+ "27/10/2021", " ", "Início da Cerimônia de Encerramento", " ", FALSE,
+"27/10/2021", "17:30 - 18:00", "Homenagem a Professora Neli Aparecida de Mello-Théry (em memória)", "<a href='https://youtu.be/koogeBIERpU' target='_blank'><i class='fab fa-youtube'></i> Transmissão ao vivo</a>", FALSE,
+
+ "27/10/2021", "18:00 - 18:50", "<b>Mesa de Encerramento</b> <br><br><b>Participantes:</b>  <br>
+Alessandra Munduruku   <br>
+Daniel Fonseca de Andrade - Egresso PROCAM  ", "<a href='https://youtu.be/koogeBIERpU' target='_blank'><i class='fab fa-youtube'></i> Transmissão ao vivo</a>", FALSE,
+
+) 
+
+
+
+
+programacao_dia_1 <- tabela_programacao %>% 
+  dplyr::filter(Dia == "25/10/2021") %>% 
+  dplyr::select(-Dia) 
+
+programacao_dia_2 <- tabela_programacao %>% 
+  dplyr::filter(Dia == "26/10/2021") %>% 
+  dplyr::select(-Dia)
+
+
+programacao_dia_3 <- tabela_programacao %>% 
+  dplyr::filter(Dia == "27/10/2021") %>% 
+  dplyr::select(-Dia)
+
+```
+
+
+## 25/10/2021 - Conservação, Impactos e Planejamento Ambiental 
+
+
+
+```{r}
+  reactable::reactable(programacao_dia_1[,1:3] ,
+      columns = list(
+    Atividade = colDef(minWidth = 200, html = TRUE),
+        `Link de acesso` = colDef( html = TRUE)
+    ), searchable = TRUE,
+    rowStyle = function(index) {
+    if (tabela_programacao[index, "destaque"] == TRUE) {
+      list(fontWeight = "bold", background = "rgba(0, 0, 0, 0.03)")
+    }
+  }, pagination = FALSE)
+```
+
+
+## 26/10/2021 - Governança, Políticas Ambientais e Sustentabilidade
+
+```{r}
+  reactable::reactable(programacao_dia_2[,1:3] ,
+      columns = list(
+    Atividade = colDef(minWidth = 200, html = TRUE),
+        `Link de acesso` = colDef( html = TRUE)
+    ), searchable = TRUE,
+    rowStyle = function(index) {
+    if (tabela_programacao[index, "destaque"] == TRUE) {
+      list(fontWeight = "bold", background = "rgba(0, 0, 0, 0.03)")
+    }
+  }, pagination = FALSE)
+```
+
+
+
+
+## 27/10/2021 - Mudanças Climáticas, Geotecnologias e Modelagem
+
+```{r}
+  reactable::reactable(programacao_dia_3[,1:3] ,
+      columns = list(
+    Atividade = colDef(minWidth = 200, html = TRUE),
+    `Link de acesso` = colDef( html = TRUE)
+    ), searchable = TRUE,
+    rowStyle = function(index) {
+    if (tabela_programacao[index, "destaque"] == TRUE) {
+      list(fontWeight = "bold", background = "rgba(0, 0, 0, 0.03)")
+    }
+  }, pagination = FALSE)
+```
+

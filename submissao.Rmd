@@ -1,0 +1,169 @@
+---
+title: "Submissão de trabalhos"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Resumos aprovados
+
+- <a href="/Resumos_Aprovados_III_SICAM_v3.pdf" target="_blank">Clique aqui para conferir a lista de resumos aprovados</a>
+
+- <a href='/programacao_apresentacoes_orais/'><i class='fas fa-chalkboard-teacher'></i>Confira a programação de apresentações orais</a>
+
+## Recursos para autores(as)
+
+
+
+- <a href="/faq/"> Lista de Perguntas Frequentes (FAQ) </a>
+
+- <a href="/regras_gerais_apresentacao_oral/"> Regras Gerais para Apresentação Oral </a>
+
+- <a href="/tutorial-video-poster/"> Tutorial para apresentação de vídeo-pôster </a>
+
+- <a href="https://docs.google.com/presentation/d/17YlmCZSIxFgySethYKAhaKM7Hp5Q45JFzdi6oo-lMG8/edit?usp=sharing" target="_blank">Template de apresentação</a>
+
+
+## Datas importantes
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+library(magrittr)
+tabela_cronograma <- readr::read_csv("cronograma.csv") %>% 
+  dplyr::mutate(data = format(data, "%d/%m/%Y")) %>% 
+  #knitr::kable(col.names = c("Data", "Descrição")) %>% 
+  dplyr::rename("Data" = data, "Descrição" = descricao) 
+
+library(reactable)
+reactable(
+  tabela_cronograma[, 1:2],
+  rowStyle = function(index) {
+    if (tabela_cronograma[index, "destaque"] == TRUE) {
+      list(fontWeight = "bold", background = "rgba(0, 0, 0, 0.03)")
+    }
+  }
+)
+```
+
+
+
+
+## Sobre a submissão - **SUBMISSÕES ENCERRADAS**
+
+Interessados em participar do evento terão a opção de divulgar seus trabalhos em forma de apresentação oral, distribuídos em grupos temáticos (GTs).
+
+Os trabalhos, a serem divulgados pelos participantes, envolverão aspectos sociais, econômicos, tecnológicos, urbanos, rurais, ambientais, dentre outros que englobam a interdisciplinar temática ambiental. A divulgação dos trabalhos busca maior integração não apenas com o meio acadêmico, mas também entre profissionais que atuam nas diversas frentes que envolvem o meio ambiente.
+
+Durante as apresentações, haverá debatedores e relatores.
+
+-   Debatedores: farão perguntas e contribuições sobre os trabalhos apresentados.
+
+-   Relatores: responsáveis por compilar os pontos principais de cada discussão e por expô-los na Plenária Geral a todo público do evento, de modo a trazer maior integração dos temas apresentados entre os GTs.
+
+<center>
+
+<a href="../eixos-tematicos" target="_blank"><button type="button" class="btn btn-success">Saiba mais sobre os eixos <br> e grupos temáticos</button>
+
+</center>
+
+</a>
+
+## Normas de elaboração de resumo expandido
+
+-   O resumo expandido deverá conter até **3000 palavras** (excluindo as referências, figuras, tabelas, resumo e abstract).
+
+-   No **Resumo**, deve-se ressaltar a importância e justificativa do trabalho, o objetivo, o local de realização, a metodologia utilizada, os principais resultados e, ao final, a principal conclusão, escritos de maneira clara, coerente e concisa. O conteúdo deve apresentar coerência metodológica.
+
+-   O resumo expandido poderá conter até 5 elementos não textuais (gráficos, imagens, tabelas, quadros), os quais devem seguir as regras do item "Elementos não textuais", que está ao final deste arquivo. Todos os elementos não-textuais devem ser citados no texto principal. 
+
+-   No **Texto principal** (Desenvolvimento do trabalho, por exemplo, as seções Introdução, Material e Métodos, Resultados, Discussão e Conclusão, podendo-se utilizar outra estrutura caso o autor prefira) deve ser redigido em português, fonte Times New Roman, tamanho 12, formato do papel A4, com espaçamento 1,5 cm entre linhas, bem como margens superior e esquerda de 2,5 cm e inferior e direita de 2,5 cm. O texto deverá ser digitado em modo "justificado".
+
+-   Todos os títulos (ex: Resumo, Introdução, entre outros) deverão ser escritos em letras maiúsculas e em negrito, seguidos por dois pontos (:) e pelo texto, com início na mesma linha. O recuo do parágrafo deve ser de 1,25 cm. Os tópicos devem ser separados do final do texto anterior por por um ENTER, com espaçamento de 1,5 cm entre as linhas. **Não colocar o número das páginas** no arquivo.
+
+Para facilitar a formatação dos trabalhos pelos autores, a Comissão Organizadora do III SICAM também disponibilizou um modelo, em word:
+
+<center>
+
+<a href="/template.docx" target="_blank"><button type="button" class="btn btn-success">Clique aqui para baixar <br> o modelo em word </button>
+
+</center>
+
+</a>
+
+### Sequência de tópicos do Resumo expandido
+
+-   **Título:** deve ser redigido em fonte Times New Roman, tamanho 12, em negrito, centralizado. Todas as letras do título devem ser maiúsculas.
+
+-   **Nomes dos autores**: Após uma linha (espaços 1,5) do título, devem aparecer os nomes dos autores, separados por ponto e vírgula, em fonte Times New Roman, tamanho 12, centralizados, nomes e sobrenomes com a primeira letra em maiúsculo. 
+
+-   **Afiliação**: Incluir números sobrescritos correspondentes aos nomes dos autores, informando o nome completo, instituição e endereço eletrônico do autor. Colocar as informações de cada autor uma embaixo da outra em espaço simples, centralizado, sendo utilizada a fonte Times New Roman, tamanho 8.  
+
+-   **Resumo** (máximo de 250 palavras), **Palavras-Chave** (no máximo 5), **Abstract** (máximo de 250 palavras) e **Keywords** (no máximo 5).
+
+-   **Texto principal**: Posteriormente, deve ser apresentado o texto principal (Desenvolvimento do Trabalho contendo Introdução, Material e Métodos, Resultados, Discussão e Conclusão, havendo flexibilidade nessa estrutura) segundo as regras mencionadas nas Normas de Elaboração acima.
+
+-   **Agradecimentos**: se for o caso, devem ser inseridos de forma sucinta, após a conclusão.
+
+-   **Referências**: devem seguir a norma da ABNT, (NBR 6023:2018). Incluir apenas aquelas mencionadas no texto e em tabelas, gráficos, fotos ou imagens, aparecendo em ordem alfabética e em letras maiúsculas. Evitar referências de resumos, trabalhos não publicados e comunicação pessoal.
+
+## Elementos não-textuais (máximo de 5)
+
+-   **Figuras (fotos, gráficos, desenho):** Devem ser centralizadas, convertidas para o formato "jpg" antes de serem inseridas no texto do Word (inserir, figura, do arquivo). A numeração deve ser sucessiva em algarismos arábicos (Exemplo: Figura 1), sendo citada anteriormente no texto principal. Os **gráficos** devem ser inseridos no texto do Word como figuras (copiar, colar especial, figura do Excel Objeto) e centralizados. Os gráficos devem ser apresentados sem bordas, sendo os eixos x e y com 1/2 pt, descritos com o mesmo tipo e tamanho de letras contidas no texto. A legenda deve ser inserida na posição superior, centralizada, e a fonte da imagem deve ser inserida na parte inferior, justificada à direita.
+
+-   **Tabelas:** Devem ser digitadas no texto do Word, de modo a ficarem independentes dos aplicativos fontes, tais como Excel. Espaçamento simples entre linhas. A numeração deve ser sucessiva em algarismos arábicos (Exemplo: Tabela 1), sendo citada anteriormente no texto principal. A legenda deve ser superior à tabela, centralizada, fonte Times New Roman, tamanho 10.
+
+## Orientações para envio de resumo expandido
+
+No ato da submissão do resumo expandido, deverão ser enviados dois arquivos: 
+
+-   um em **formato \*.pdf sem os nomes dos autores** (para permitir a avaliação cega por parte dos avaliadores) 
+
+-   e outro em **formato word** (\*.doc ou \*.docx) **com os nomes e filiações** dos autores (este será publicado nos anais no caso de aceite).
+
+Cada um destes dois arquivos devem possuir o mesmo nome e com palavras separadas por underscore ("\_"), por exemplo, `Ciencia_Ambiental_SICAM.docx` (para o arquivo com nomes e afiliações dos autores) e `Ciencia_Ambiental_SICAM.pdf` (para o arquivo sem nomes e afiliações dos autores).
+
+Ambos os arquivos devem ser anexados ao formulário de Inscrição [neste link](https://forms.gle/sew1gi3Bojd2RVEu7) até às 23h59min do dia 03 de setembro de 2021. A data de publicação dos aceites e anais será disponibilizada no [site do evento](https://sicam.com.br/).
+
+<center>
+
+<a href="https://forms.gle/sew1gi3Bojd2RVEu7" target="_blank"><button type="button" class="btn btn-success">Acesse o formulário de <br> inscrição e submissão! </button>
+
+</center>
+
+</a>
+
+-   No ato da submissão, o autor deverá escolher a **forma de apresentação oral** do seu trabalho: apresentação ao vivo, por meio de videoconferência na plataforma Google Meet, com **10 minutos** para exibição e 5 minutos para resposta a perguntas dos participantes; ou na forma de vídeo-pôster, com duração máxima de **7 minutos**, que deverá ser enviado à Comissão Organizadora do iII SICAM para disponibilização no canal do YouTube do Instituto de Energia e Ambiente da USP e link de acesso disponibilizado no site do Simpósio (<https://sicam.com.br/>) .
+
+-   Caso a quantidade de apresentações orais exceda a quantidade de tempo disponível para o evento, a Comissão Científica selecionará alguns trabalhos para serem apresentados em formato de vídeo-pôster. 
+
+-   No site do Simpósio (<https://sicam.com.br/>), serão disponibilizadas informações e tutoriais para apoiar a apresentação ao vivo dos trabalhos e a edição e envio de vídeo-pôster pelos autores. Em relação aos slides para as apresentações orais e vídeo-pôsteres, os autores podem utilizar a formatação de sua preferência, podendo incluir  o logotipo do evento [(disponível para download neste link)](https://drive.google.com/drive/u/1/folders/14YW8STCAquu3PO5DrxgL9IEZ9-h2h5co).
+
+
+
+<center>
+
+<a href="/tutorial-video-poster/" target="_blank"><button type="button" class="btn btn-success">Clique aqui para conferir <br> o tutorial para apresentação de vídeo-pôster </button>
+
+</center>
+
+</a>
+
+-   O **limite** máximo de trabalhos submetidos é de **3 (três) resumos expandidos por primeiro autor**, não sendo cobrada qualquer taxa para submissão de trabalhos nem para a participação do evento. Em caso de optar por apresentação oral ao vivo para mais de um trabalho, GTs diferentes podem ser considerados desde que ocorram em dias diferentes do evento.
+
+Atenção para os seguintes pontos:
+
+-   Recomenda-se aos autores que **evitem submissões em última hora** para evitar possíveis falhas de sistema ocasionadas por congestionamento (grande quantidade de usuários ao mesmo tempo).
+
+<!-- -->
+
+-   Uma vez submetido o resumo, não haverá mais oportunidades para qualquer tipo de correção. Ou seja, **o(s) autor(es) é(são) responsável(is) por eventuais erros presentes no seu trabalho**, devendo estar ciente que a qualidade do texto (gramática, ortografia e formatação) será considerada como critério de avaliação pela comissão científica;
+
+-   **Os certificados de apresentação serão enviados somente aos que apresentaram o trabalho.**
+
+-   **O autor responsável pela apresentação deverá se inscrever no evento**. Caso o autor responsável pela apresentação tenha algum imprevisto e não possa participar do evento, o mesmo deverá solicitar que outro autor faça a inscrição para a apresentação ou deverá informar à Comissão Organizadora que o trabalho não será apresentado. 
+
+-   A inscrição no evento (de 26/07 a 08/10 para autores que apresentarão trabalhos) poderá ser feita após o resultado do parecer do trabalho submetido, que ocorrerá até o dia **04/10/2021**.
+
+Em caso de dúvidas, escrever para a Comissão Organizadora do 3º SICAM, por meio do e-mail [**iii.sicam.2021\@gmail.com**](mailto:iii.sicam.2021@gmail.com).

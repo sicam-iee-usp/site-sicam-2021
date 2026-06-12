@@ -1,0 +1,37 @@
+---
+title: "Equipe"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+
+```{r include=FALSE}
+library(magrittr)
+equipe <- readr::read_csv("equipe_comissao_organizadora.csv")
+```
+
+## Comissão Organizadora
+
+```{r echo=FALSE, results="asis"}
+ comissao_organizadora <- equipe %>% 
+  dplyr::arrange(nome) %>% 
+  dplyr::mutate(vinculo = glue::glue("{vinculo} no PROCAM/IEE/USP")) %>% 
+ 
+    dplyr::mutate(texto = glue::glue("<li> **{nome}** - {vinculo}
+                                     <a href='mailto:{email}'><i class='far fa-envelope'></i></a></li> <br>")) %>% 
+    dplyr::select(texto) %>% 
+    dplyr::pull()
+
+  cat( comissao_organizadora)
+  
+
+```
+
+
+## Comitê Científico
+
+### Em breve!

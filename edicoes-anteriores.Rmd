@@ -1,0 +1,16 @@
+---
+title: "Edições anteriores"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+
+### **[II SICAM - II Simpósio Interdisciplinar de Ciência Ambiental](/ii-sicam/)** - 14 à 16 de setembro de 2016
+  - Confira os <a href="/anais-ii-sicam.pdf" target="_blank">Anais do II SICAM</a>
+
+### **[I SICAM - I Simpósio Interdisciplinar de Ciência Ambiental](/i-sicam/)**  - 03 à 06 de dezembro de 2013
+  - Confira os <a href="/anais-i-sicam.pdf" target="_blank">Anais do I SICAM</a>
