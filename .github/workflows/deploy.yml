@@ -1,0 +1,40 @@
+name: Build e deploy (Hugo) para GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: "pages-${{ github.ref }}"
+  cancel-in-progress: true
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout do repositório
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Instalar o Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: '0.83.1'
+          extended: true
+
+      - name: Build do site
+        env:
+          HUGO_ENV: production
+        run: hugo --minify --baseURL "https://2021.sicam.com.br/"
+
+      - name: Deploy para a branch gh-pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+          cname: 2021.sicam.com.br
